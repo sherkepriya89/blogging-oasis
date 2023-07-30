@@ -22,7 +22,10 @@
       crossorigin="anonymous"
     ></script>
     <%= render "layouts/navigation" %>
-    <%= render "layouts/messages" %>
-    <%= yield %>
+    <div id = "page-content" class="bg-secondary">
+      <%= render "layouts/messages" %>
+      <%= yield %>
+    </div>
+    <%= render "layouts/footer" %>
   </body>
 </html>
