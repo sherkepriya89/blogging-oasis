@@ -9,7 +9,7 @@
         <div class="card-body">
           <div class="card-text text-start"><%= simple_format(@article.description) %></div>
           <%= link_to "Edit", edit_article_path(@article), class: "btn btn-outline-info" %>
-          <%= link_to "Delete",
+          <%= button_to "Delete",
           article_path(@article),
           class: "btn btn-outline-danger",
           method: :delete,
