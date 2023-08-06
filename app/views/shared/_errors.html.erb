@@ -1,10 +1,10 @@
-<% if @article.errors.any? %>
+<% if obj.errors.any? %>
   <div class="alert alert-danger alert-dismissible">
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
     <h4>The following errors prevented the article from being saved
     </h4>
     <ul>
-      <% @article.errors.full_messages.each do |msg| %>
+      <% obj.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
     </ul>
