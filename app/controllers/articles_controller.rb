@@ -6,7 +6,7 @@ def show
     
 end
 def index
-    @articles = Article.all
+    @articles = Article.paginate(page: params[:page], per_page: 3)
 end
 
 def new
