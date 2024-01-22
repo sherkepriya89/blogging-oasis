@@ -1,4 +1,6 @@
-<h2 class="text-center mt-4"><%= @article.title %></h2>
+<h2 class="text-center mt-4">
+  <%= @article.title %>
+</h2>
 <div class="container">
   <div class="row justify-content-md-center">
     <div class="col-8 mt-5">
@@ -6,26 +8,22 @@
         <div class="card-header fst-italic">
           by
           <%= @article.user.username if @article.user %>
+            <%= link_to gravatar_for(@article.user), user_path(@article.user) %>
         </div>
         <div class="card-body">
-          <div class="card-text text-start"><%= simple_format(@article.description) %></div>
-          <%= link_to "Edit", edit_article_path(@article), class: "btn btn-outline-info" %>
-          <%= button_to "Delete",
-          article_path(@article),
-          class: "btn btn-outline-danger",
-          method: :delete,
-          form: {
-            data: {
-              turbo_confirm: "Are you sure?"
-            }
-          } %>
+          <div class="card-text text-start">
+            <%= simple_format(@article.description) %>
+          </div>
+          <%= link_to "Edit" , edit_article_path(@article), class: "btn btn-outline-info" %>
+            <%= button_to "Delete" , article_path(@article), class: "btn btn-outline-danger" , method: :delete, form: {
+              data: { turbo_confirm: "Are you sure?" } } %>
         </div>
         <div class="card-footer text-muted">
           <small>Created
             <%= time_ago_in_words(@article.created_at) %>
-            ago, edited
-            <%= time_ago_in_words(@article.updated_at) %>
-            ago
+              ago, edited
+              <%= time_ago_in_words(@article.updated_at) %>
+                ago
           </small>
         </div>
       </div>
